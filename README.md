@@ -35,19 +35,19 @@ cd ./lab1_mtrp
 kotlinc *.kt -include-runtime -d quadratic-equation-solver-cli.jar
 ```
 
-# Run non-interactive mode
+## Run non-interactive mode
 
 ```cmd
 java -jar Main.kt test_valid.txt
 ```
 
-# Run interactive mode
+## Run interactive mode
 
 ```cmd
 java -jar Main.kt test_valid.txt
 ```
 
-# File format
+## File format
 
 In non-interactive mode, the program accepts one argument - the path to a file with equation coefficients. The file contains 3 numbers: a, b, c separated by a single space. The decimal symbol expected is a dot. After the last coefficient (c), there should be a new line character (\n), and the file ends there.
 
