@@ -1,12 +1,27 @@
 import kotlin.math.sqrt
+import java.io.File
 
-fun main(){
-    interactiveMode()
+fun main(args: Array<String>){
+    if (!args.isEmpty()) { nonInteractiveMode(args) }
+    else {interactiveMode()}
 }
+
+fun nonInteractiveMode(args: Array<String>) {
+    val file = File(args[0])
+    if (!file.exists()) {
+        println("Error: file does not exist")
+        return
+    }
+
+    val input = file.readText().trim().split(" ")
+    val (a, b, c) = input.map { it.toDoubleOrNull() }
+    solveQuadEquation(a, b, c)
+}
+
+
 
 fun interactiveMode(){
     println("Enter the parameters")
-  
     val a = readDouble("a")
     val b = readDouble("b")
     val c = readDouble("c")
@@ -31,6 +46,7 @@ fun readDouble(name: String): Double {
 
 fun solveQuadEquation(a: Double, b: Double, c: Double) {
     val discriminant = b * b - 4 * a * c
+    println("Equation is: ($a) x^2 + ($b) x + ($c) = 0")
     when {
         discriminant > 0 -> {
             val x1 = (-b + sqrt(discriminant)) / (2 * a)
