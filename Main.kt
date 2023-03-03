@@ -12,13 +12,22 @@ fun nonInteractiveMode(args: Array<String>) {
         println("Error: file does not exist")
         return
     }
-
     val input = file.readText().trim().split(" ")
+    if (input.size != 3) {
+        println("Error: expected 3 numbers")
+        return
+    }
     val (a, b, c) = input.map { it.toDoubleOrNull() }
+    if (a == 0.0) {
+        println("Error: 'a' coefficient cannot be 0")
+        return
+    }
+    if (a == null || b == null || c == null) {
+        println("Error: expected valid real numbers")
+        return
+    }
     solveQuadEquation(a, b, c)
 }
-
-
 
 fun interactiveMode(){
     println("Enter the parameters")
