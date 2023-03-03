@@ -44,7 +44,7 @@ java -jar Main.kt test_valid.txt
 ## Run interactive mode
 
 ```cmd
-java -jar Main.kt test_valid.txt
+java -jar Main.kt
 ```
 
 ## File format
