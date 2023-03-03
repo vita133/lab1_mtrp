@@ -1,18 +1,33 @@
 import kotlin.math.sqrt
 
 fun main(){
-    println("Enter the parameters")
-    print("a = ")
-    val a = readLine()!!.toDouble()
-     print("b = ")
-    val b = readLine()!!.toDouble()
-     print("c = ")
-    val c = readLine()!!.toDouble()
-
-
-    solveQuadEquation(a, b, c)
-    println("End")
+    interactiveMode()
 }
+
+fun interactiveMode(){
+    println("Enter the parameters")
+  
+    val a = readDouble("a")
+    val b = readDouble("b")
+    val c = readDouble("c")
+    if (a == 0.0) {
+        println("Error: 'a' coefficient cannot be zero")
+        return
+    }
+    solveQuadEquation(a, b, c)
+}
+
+fun readDouble(name: String): Double {
+    while (true) {
+        print("$name = ")
+        val input = readLine()?.toDoubleOrNull()
+        if (input != null) {
+            return input
+        }
+        println("Error: expected a valid real number")
+    }
+}
+
 
 fun solveQuadEquation(a: Double, b: Double, c: Double) {
     val discriminant = b * b - 4 * a * c
