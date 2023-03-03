@@ -46,3 +46,9 @@ java -jar Main.kt test_valid.txt
 ```cmd
 java -jar Main.kt test_valid.txt
 ```
+
+# File format
+
+In non-interactive mode, the program accepts one argument - the path to a file with equation coefficients. The file contains 3 numbers: a, b, c separated by a single space. The decimal symbol expected is a dot. After the last coefficient (c), there should be a new line character (\n), and the file ends there.
+
+## [Link on Revert Commit](https://github.com/vita133/lab1_mtrp/commit/1d480e264541189bca77d8fdac19f45b513c7e28)
