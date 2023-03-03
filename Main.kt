@@ -18,14 +18,18 @@ fun nonInteractiveMode(args: Array<String>) {
         return
     }
     val (a, b, c) = input.map { it.toDoubleOrNull() }
-    if (a == 0.0) {
-        println("Error: 'a' coefficient cannot be 0")
-        return
+
+    when {
+        a == null || b == null || c == null -> {
+            println("Error: expected valid real numbers")
+            return
+        }
+        a == 0.0 -> {
+            println("Error: 'a' coefficient cannot be 0")
+            return
+        }
     }
-    if (a == null || b == null || c == null) {
-        println("Error: expected valid real numbers")
-        return
-    }
+
     solveQuadEquation(a, b, c)
 }
 
@@ -47,11 +51,11 @@ fun readDouble(name: String): Double {
         val input = readLine()?.toDoubleOrNull()
         if (input != null) {
             return input
+        } else {
+            println("Error: expected a valid real number")
         }
-        println("Error: expected a valid real number")
     }
 }
-
 
 fun solveQuadEquation(a: Double, b: Double, c: Double) {
     val discriminant = b * b - 4 * a * c
