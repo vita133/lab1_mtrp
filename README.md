@@ -1,5 +1,7 @@
 # Quadratic Equation Solver
 
+Andrukhiv Vita IM-13
+
 ## Description
 
 This is a Kotlin program that solves quadratic equations. It can be used in both interactive and non-interactive modes.
